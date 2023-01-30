@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] public float delay = 2f;
+    [SerializeField] private ParticleSystem finishEffect;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            Invoke(nameof(ReloadScene),delay);
+            finishEffect.Play();
+            Invoke(nameof(ReloadScene), delay);
         }
     }
 

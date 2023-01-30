@@ -7,11 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D _playerBody;
 
-    [SerializeField] private float torqueAmount = 8f; 
+    [SerializeField] private float torqueAmount = 8f;
+
     // Start is called before the first frame update
     void Start()
     {
-       _playerBody =  GetComponent<Rigidbody2D>();
+        _playerBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
             _playerBody.AddTorque(torqueAmount);
         }
 
-       else if ( Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             _playerBody.AddTorque(-torqueAmount);
         }
