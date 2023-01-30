@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CrashDetector : MonoBehaviour
    {
       if (col.CompareTag("Ground"))
       {
-         Debug.Log("Hit head");
+          SceneManager.LoadScene(0);
       }
    }
 }
