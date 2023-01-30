@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float torqueAmount = 8f;
     [SerializeField] private float boostSpeed = 1f;
     [SerializeField] private float baseSpeed = 15f;
+    private bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
-        RespondToBoost();
+        if (canMove)
+        {
+            RotatePlayer();
+            RespondToBoost();    
+        }
     }
 
     private void RespondToBoost()
@@ -49,5 +53,10 @@ public class PlayerController : MonoBehaviour
         {
             _playerBody.AddTorque(-torqueAmount);
         }
+    }
+
+    public void DisableControlls()
+    {
+        canMove = false;
     }
 }
